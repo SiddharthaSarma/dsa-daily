@@ -24,3 +24,19 @@ public:
     return cur;
   }
 };
+
+// Method 3
+class Solution {
+public:
+  ListNode* reverse(ListNode* head, ListNode* newHead) {
+    if (!head) {
+      return newHead;
+    }
+    ListNode* temp = head->next;
+    head->next = newHead;
+    return reverse(temp, head);
+  }
+  ListNode* reverseList(ListNode* head) {
+    return reverse(head, NULL);
+  }
+};
